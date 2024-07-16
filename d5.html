@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Insert Row in a Table</title>
+<script>
+function insertRow() {
+  const table = document.getElementById('sampleTable');
+  const tbody = table.getElementsByTagName('tbody')[0]; // Get the first tbody element (if any)
+
+  // Create a new table row (<tr>) element
+  const newRow = document.createElement('tr');
+
+  // Create new table cells (<td>) and add content (optional)
+  const newCell1 = document.createElement('td');
+  newCell1.textContent = 'New Row Cell 1';
+  const newCell2 = document.createElement('td');
+  newCell2.textContent = 'New Row Cell 2';
+
+  // Append the new cells to the new row
+  newRow.appendChild(newCell1);
+  newRow.appendChild(newCell2);
+
+  // Optionally, add the new row to the table body (if exists)
+  if (tbody) {
+    tbody.appendChild(newRow);
+  } else {
+    // If no tbody exists, append the row directly to the table
+    table.appendChild(newRow);
+  }
+}
+</script>
+</head>
+<body>
+<table id="sampleTable" border="1">
+  <tr><td>Row1 cell1</td> <td>Row1 cell2</td></tr>
+  <tr><td>Row2 cell1</td> <td>Row2 cell2</td></tr>
+</table>
+<br>
+<input type="button" onclick="insertRow()" value="Insert Row">
+</body>
+</html>

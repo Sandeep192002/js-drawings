@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Volume of a Sphere</title>
+</head>
+<body>
+  <script>
+    function calculateVolume() {
+      const radius = parseFloat(prompt("Enter the radius of the sphere:"));
+      const pi = Math.PI; // Use the built-in PI constant
+
+      // Input validation (optional)
+      if (isNaN(radius) || radius <= 0) {
+        alert("Invalid radius! Please enter a positive number.");
+        return;
+      }
+
+      const volume = (4 / 3) * pi * Math.pow(radius, 3); // Calculate volume
+      alert("The volume of the sphere is: " + volume.toFixed(2)); // Display volume with 2 decimal places
+    }
+  </script>
+  <button onclick="calculateVolume()">Calculate Volume</button>
+</body>
+</html>

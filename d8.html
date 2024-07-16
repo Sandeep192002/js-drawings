@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Remove Items from Dropdown List</title>
+<script>
+function removeColor() {
+  const colorSelect = document.getElementById('colorSelect');
+  const selectedIndex = colorSelect.selectedIndex; // Get the selected index
+
+  // Check if an option is selected (optional)
+  if (selectedIndex === -1) {
+    alert('Please select an option to remove!');
+    return;
+  }
+
+  // Remove the selected option
+  colorSelect.remove(selectedIndex);
+}
+</script>
+</head>
+<body>
+<form>
+  <select id="colorSelect">
+    <option>Red</option>
+    <option>Green</option>
+    <option>White</option>
+    <option>Black</option>
+  </select>
+  <input type="button" onclick="removeColor()" value="Select and Remove"><br>
+</form>
+</body>
+</html>

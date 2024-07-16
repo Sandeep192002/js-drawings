@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Window Width and Height on Resize</title>
+</head>
+<body>
+  <p id="windowDimensions"></p>
+
+  <script>
+  function getWindowDimensions() {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    const displayText = ('Window Width: ${width}px, Window Height: ${height}px');
+    const dimensionsElement = document.getElementById('windowDimensions');
+    dimensionsElement.textContent = displayText;
+  }
+
+  window.addEventListener('resize', getWindowDimensions);
+
+  getWindowDimensions(); // Call initially to display initial dimensions
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Create and Populate Table</title>
+<style type="text/css">
+body { margin: 30px; }
+table { border-collapse: collapse; }
+td { padding: 5px; }
+</style>
+</head>
+<body>
+<table id="myTable"></table> <form>
+  <label for="rows">Rows: </label>
+  <input type="number" id="rows" min="1" required>
+  <label for="cols"> Columns: </label>
+  <input type="number" id="cols" min="1" required>
+  <br>
+  <input type="button" onclick="createTable()" value="Create Table">
+</form>
+<script>
+function createTable() {
+  const rows = parseInt(document.getElementById('rows').value);
+  const cols = parseInt(document.getElementById('cols').value);
+
+  // Get the table element or create it if it doesn't exist
+  const table = document.getElementById('myTable');
+  if (!table) {
+    const newTable = document.createElement('table');
+    newTable.id = 'myTable';
+    document.body.appendChild(newTable);
+  }
+
+  // Clear existing table content
+  table.innerHTML = '';
+
+  // Create table body (<tbody>)
+  const tableBody = document.createElement('tbody');
+  table.appendChild(tableBody);
+
+  // Generate table rows and cells
+  for (let r = 0; r < rows; r++) {
+    const tableRow = document.createElement('tr');
+    for (let c = 0; c < cols; c++) {
+      const tableCell = document.createElement('td');
+      tableCell.textContent = ('Row-${r} Column-${c}');
+      tableRow.appendChild(tableCell);
+    }
+    tableBody.appendChild(tableRow);
+  }
+}
+</script>
+</body>
+</html>
